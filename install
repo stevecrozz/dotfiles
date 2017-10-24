@@ -1,18 +1,22 @@
 #! /bin/bash
 
-dotfiles=$(pwd)
-relpath=$(realpath --relative-to="$HOME" "$dotfiles")
+scriptpath=$(readlink -f "$0")
+dotfilespath=$(dirname "$scriptpath")
+relpath=$(realpath --relative-to="$HOME" "$dotfilespath")
 
 echo "Home: $HOME"
-echo "Dotfiles: $dotfiles"
+echo "Dotfiles: $dotfilespath"
 echo "Relpath: $relpath"
 
-dotfiles=$(find . -name ".*" -not -name ".git" -not -name "." -prune)
+pushd $dotfilespath
+  dotfiles=$(find . -name ".*" -not -name ".git" -not -name "." -prune)
+popd
 
 pushd $HOME
   for d in $dotfiles
   do
     relname=$(basename $d)
-    ln -s "$relpath/$relname"
+    echo ln --symbolic --force "$relpath/$relname"
+    ln --symbolic --force "$relpath/$relname"
   done
 popd
