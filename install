@@ -1,0 +1,18 @@
+#! /bin/bash
+
+dotfiles=$(pwd)
+relpath=$(realpath --relative-to="$HOME" "$dotfiles")
+
+echo "Home: $HOME"
+echo "Dotfiles: $dotfiles"
+echo "Relpath: $relpath"
+
+dotfiles=$(find . -name ".*" -not -name ".git" -not -name "." -prune)
+
+pushd $HOME
+  for d in $dotfiles
+  do
+    relname=$(basename $d)
+    ln -s "$relpath/$relname"
+  done
+popd
