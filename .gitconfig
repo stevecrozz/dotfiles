@@ -1,0 +1,24 @@
+[user]
+  name = Stephen Crosby
+  email = stevecrozz@gmail.com
+  signingkey = 62397DE5
+[diff]
+  renames = copies
+[web]
+  browser = google-chrome
+[log]
+  decorate = true
+[sendemail]
+  smtpEncryption = tls
+  smtpServer = smtp.gmail.com
+  smtpUser = stevecrozz@gmail.com
+  smtpServerPort = 587
+[credential]
+  helper = store
+[commit]
+  gpgsign = true
+[remote "origin"]
+  fetch = +refs/heads/*:refs/remotes/origin/*
+  fetch = +refs/pull/*/head:refs/remotes/origin/pull/*
+[alias]
+  recent = !git for-each-ref refs/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset)|%(color:bold green)%(committerdate:relative)%(color:reset)|%(contents:lines=1)|%(color:magenta)%(authorname)%(color:reset)' --count 100 --sort=-committerdate | column -ts '|' | less -SXRF
