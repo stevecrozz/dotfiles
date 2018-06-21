@@ -25,9 +25,6 @@
 [submodule ".vim/bundle/buffergator"]
 	path = .vim/bundle/buffergator
 	url = git@github.com:jeetsukumaran/vim-buffergator.git
-[submodule ".vim/bundle/markdown"]
-	path = .vim/bundle/markdown
-	url = git@github.com:plasticboy/vim-markdown.git
 [submodule ".vim/bundle/sensible"]
 	path = .vim/bundle/sensible
 	url = git@github.com:tpope/vim-sensible.git
@@ -37,3 +34,12 @@
 [submodule ".vim/bundle/trailing-whitespace"]
 	path = .vim/bundle/trailing-whitespace
 	url = git@github.com:bronson/vim-trailing-whitespace.git
+[submodule ".vim/bundle/unimpaired"]
+	path = .vim/bundle/unimpaired
+	url = git@github.com:tpope/vim-unimpaired.git
+[submodule ".vim/bundle/rhubarb"]
+	path = .vim/bundle/rhubarb
+	url = git@github.com:tpope/vim-rhubarb.git
+[submodule ".vim/bundle/jsx"]
+	path = .vim/bundle/jsx
+	url = git@github.com:mxw/vim-jsx.git

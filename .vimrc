@@ -18,8 +18,8 @@ set encoding=utf-8
 set backspace=indent,eol,start
 
 " turd files
-set backupdir=~/.vimbackup " where to put backup files
-set directory=~/.tmp       " where to put swap files
+" set backupdir=~/.vimbackup " where to put backup files
+" set directory=~/.tmp       " where to put swap files
 set nobackup
 set noswapfile
 let g:netrw_dirhistmax = 0
@@ -61,16 +61,16 @@ nnoremap Q <nop>
 map <Leader> <Plug>(easymotion-prefix)
 
 " Search for selected text, forwards or backwards.
-" vnoremap <silent> * :<C-U>
-"   \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-"   \gvy/<C-R><C-R>=substitute(
-"   \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-"   \gV:call setreg('"', old_reg, old_regtype)<CR>
-" vnoremap <silent> # :<C-U>
-"   \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-"   \gvy?<C-R><C-R>=substitute(
-"   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-"   \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
 
 " <cr> should not only clear highlighted search, but flash the current
 " " cursor location.

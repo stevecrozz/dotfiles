@@ -8,6 +8,7 @@ export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWUPSTREAM="auto"
+export GOPATH="$HOME/Projects/go"
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -120,3 +121,10 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+export PATH="$HOME/.rbenv/bin:/usr/lib/go-1.10/bin:~/.local/bin:$PATH"
+eval "$(rbenv init -)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

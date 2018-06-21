@@ -17,8 +17,8 @@
   helper = store
 [commit]
   gpgsign = true
-[remote "origin"]
-  fetch = +refs/heads/*:refs/remotes/origin/*
-  fetch = +refs/pull/*/head:refs/remotes/origin/pull/*
 [alias]
   recent = !git for-each-ref refs/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset)|%(color:bold green)%(committerdate:relative)%(color:reset)|%(contents:lines=1)|%(color:magenta)%(authorname)%(color:reset)' --count 100 --sort=-committerdate | column -ts '|' | less -SXRF
+  fetch-pulls = !git -c remote.origin.fetch="+refs/pull/*/head:refs/remotes/origin/pull/*" fetch
+[github]
+  user = stevecrozz
