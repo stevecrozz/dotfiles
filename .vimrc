@@ -75,3 +75,33 @@ vnoremap <silent> # :<C-U>
 " <cr> should not only clear highlighted search, but flash the current
 " " cursor location.
 " :nnoremap <CR> :nohlsearch<CR>:set cul cuc<cr>:sleep 50m<cr>:set nocul nocuc<cr>/<BS>
+
+" Create directory on save if directory does not exist
+" https://stackoverflow.com/questions/4292733/vim-creating-parent-directories-on-save
+function! s:MkNonExDir(file, buf)
+    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+        let dir=fnamemodify(a:file, ':h')
+        if !isdirectory(dir)
+            call mkdir(dir, 'p')
+        endif
+    endif
+endfunction
+augroup BWCCreateDir
+    autocmd!
+    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
+
+" vim-ruby
+let g:ruby_indent_assignment_style = 'variable'
+let g:ruby_indent_block_style = 'do'
+
+" line swapping
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+
+" diffing
+set diffopt+=vertical
+
+"let g:ale_linters = {'javascript': ['eslint']}
+"let g:ale_set_loclist = 0
+"let g:ale_set_quickfix = 1

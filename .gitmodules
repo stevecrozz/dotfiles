@@ -1,9 +1,6 @@
 [submodule ".vim/bundle/nerdcommenter"]
 	path = .vim/bundle/nerdcommenter
 	url = git@github.com:scrooloose/nerdcommenter.git
-[submodule ".vim/bundle/nerdtree"]
-	path = .vim/bundle/nerdtree
-	url = git@github.com:scrooloose/nerdtree.git
 [submodule ".vim/bundle/ctrlp.vim"]
 	path = .vim/bundle/ctrlp.vim
 	url = git@github.com:ctrlpvim/ctrlp.vim.git
@@ -40,6 +37,12 @@
 [submodule ".vim/bundle/rhubarb"]
 	path = .vim/bundle/rhubarb
 	url = git@github.com:tpope/vim-rhubarb.git
-[submodule ".vim/bundle/jsx"]
-	path = .vim/bundle/jsx
-	url = git@github.com:mxw/vim-jsx.git
+[submodule ".vim/bundle/graphql"]
+	path = .vim/bundle/graphql
+	url = https://github.com/jparise/vim-graphql.git
+[submodule ".vim/bundle/ale"]
+	path = .vim/bundle/ale
+	url = git@github.com:w0rp/ale.git
+[submodule ".vim/bundle/vim-jsx-pretty"]
+	path = .vim/bundle/vim-jsx-pretty
+	url = git@github.com:MaxMEllon/vim-jsx-pretty.git

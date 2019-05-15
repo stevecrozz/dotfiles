@@ -8,7 +8,14 @@ export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWUPSTREAM="auto"
+export GIT_PS1_SHOWCOLORHINTS=1
 export GOPATH="$HOME/Projects/go"
+
+PAGER="less"
+LESS="-SR"
+
+# disable CTRL+S
+stty -ixon
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -57,7 +64,6 @@ if [ -n "$force_color_prompt" ]; then
     color_prompt=
   fi
 fi
-export GIT_PS1_SHOWCOLORHINTS=1
 
 function color_my_prompt {
   local __cur_location="\w"
@@ -122,7 +128,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH="$HOME/.rbenv/bin:/usr/lib/go-1.10/bin:~/.local/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:/usr/local/go/bin:~/.local/bin:$HOME/.jx/bin:$PATH"
 eval "$(rbenv init -)"
 
 export NVM_DIR="$HOME/.nvm"

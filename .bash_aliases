@@ -8,3 +8,23 @@ function git () {
       ;;
   esac
 }
+
+function less () {
+  filename=$(basename -- "$1")
+  extension="${filename##*.}"
+  filename="${filename%.*}"
+  lowerextension=$(echo "$extension" | tr '[:upper:]' '[:lower:]')
+
+  case $lowerextension in
+    xls|xlsx)
+      TEMPORARY_FILENAME_BASE="/tmp/$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13 ; echo '')"
+      TEMPORARY_FILENAME_PATTERN="$TEMPORARY_FILENAME_BASE.%n.%s.csv"
+      ssconvert \
+        --export-file-per-sheet "$1" $TEMPORARY_FILENAME_PATTERN > /dev/null 2>&1
+      less $TEMPORARY_FILENAME_BASE*
+      rm $TEMPORARY_FILENAME_BASE*
+      ;;
+    *)
+      command less "$@"
+  esac
+}
