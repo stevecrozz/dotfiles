@@ -46,3 +46,6 @@
 [submodule ".vim/bundle/vim-jsx-pretty"]
 	path = .vim/bundle/vim-jsx-pretty
 	url = git@github.com:MaxMEllon/vim-jsx-pretty.git
+[submodule ".vim/bundle/ctags"]
+	path = .vim/bundle/ctags
+	url = git@github.com:universal-ctags/ctags.git

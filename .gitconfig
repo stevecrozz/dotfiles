@@ -21,17 +21,14 @@
   recent = !git for-each-ref refs/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset)|%(color:bold green)%(committerdate:relative)%(color:reset)|%(contents:lines=1)|%(color:magenta)%(authorname)%(color:reset)' --count 100 --sort=-committerdate | column -ts '|' | less -SXRF
   fetch-pulls = !git -c remote.origin.fetch="+refs/pull/*/head:refs/remotes/origin/pull/*" fetch
   freebase = "!f() { \
-    TOPIC="$(git symbolic-ref --short HEAD)"; \
+    TOPIC="$(git branch | grep '\\*' | cut -d ' ' -f2)"; \
     NEWBASE="${1:-master}"; \
     PREVSHA1="$(git rev-parse HEAD)"; \
     echo "Freebaseing $TOPIC onto $NEWBASE, previous sha1 was $PREVSHA1"; \
     echo "---"; \
-    git checkout "$NEWBASE"; \
-    git checkout -B freebase-temp; \
-    git merge --squash "$TOPIC"; \
-    git commit --no-edit; \
-    git checkout -B "$TOPIC"; \
-    git commit --amend; \
+    git reset --hard "$NEWBASE"; \
+    git merge --squash "$PREVSHA1"; \
+    git commit; \
   }; f"
 [github]
   user = stevecrozz
