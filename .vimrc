@@ -99,9 +99,27 @@ let g:ruby_indent_block_style = 'do'
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
+" selection to command mode
+" vnoremap : y:<C-r>"<C-b>
+
 " diffing
 set diffopt+=vertical
 
 "let g:ale_linters = {'javascript': ['eslint']}
-"let g:ale_set_loclist = 0
-"let g:ale_set_quickfix = 1
+
+" Ale Linting
+"let g:ale_fixers = { 'javascript': ['prettier'] }
+let g:ale_linters = { 'javascript': ['eslint'] }
+"let g:ale_linters_explicit = 1
+"let g:ale_fix_on_save = 0
+"let g:ale_sign_column_always = 0
+"let g:ale_lint_on_text_changed = 'never'
+"let g:ale_lint_on_insert_leave = 0
+"let g:ale_javascript_eslint_use_global = 1
+let g:ale_set_loclist = 1
+let g:ale_set_quickfix = 0
+" workaround bug in vim < 8.1
+" let g:ale_echo_cursor = 0
+
+" alias unnamed register to +
+" set clipboard=unnamedplus

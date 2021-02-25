@@ -10,6 +10,7 @@ export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWUPSTREAM="auto"
 export GIT_PS1_SHOWCOLORHINTS=1
 export GOPATH="$HOME/Projects/go"
+export GO111MODULE=on
 
 PAGER="less"
 LESS="-SR"
